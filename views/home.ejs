@@ -1,0 +1,138 @@
+<html>
+
+<head>
+    <title>
+        <% locals.title %>
+    </title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- our css file should be below all other styles so that v cn override thm -->
+    <link rel="stylesheet" type="text/css" href="css\home.css">
+</head>
+
+<body>
+    <div class="navigation_buttons">
+        <button class="tasks" onclick="tasksBlock()">
+            DAILY TASKS
+        </button>
+        <button class="priortized_tasks" onclick="priorityBlock()">
+            PRIORTIZED TASKS
+        </button>
+    </div>
+    <div id="page-heading">
+      <h1>TODO APP</h1>  
+    </div>
+    <div id="description">
+        <form action="/create-task" method="POST" id="task" novalidate>
+            <input type="text" name="description" placeholder="What do you need to do?" required>
+        </form>   
+    </div>
+    <div id="cat_date_prio">
+        <div id="category">
+                
+                <p>
+                    <i class="fas fa-align-justify"></i>
+                    CATEGORY
+                </p>
+                <select name="category" form="task" >
+                    <option>Personal</option>
+                    <option>
+                        Work
+                    </option>
+                    <option>
+                        Schooling
+                    </option>
+                    <option>
+                        Cleaning
+                    </option>
+                    <option>
+                        Other
+                    </option>
+                </select>
+           
+        </div>
+        <div id="date">
+                <p>DUE DATE</p>
+                <input type="date" name="due_date" form="task">
+        </div>
+    
+    <div class="priority_status">
+            <p>SET PRIORITY</p>
+            <select name="priority" form="task" >
+                    
+                    <option>
+                        Critical
+                    </option>
+                    <option>
+                        Highest
+                    </option>
+                    <option>
+                        High
+                    </option>
+                    <option>
+                        low
+                    </option>
+                    <option>
+                        future
+                    </option>
+                </select>
+    </div>
+    </div>
+<div id="buttons">
+    <div id="add_task">
+            <input type="submit" name="submit_button" value="add" form="task">
+            <!-- <i class="fas fa-plus"></i>
+            ADD task -->
+        
+    </div>
+    
+</div>
+<!-- details of tasks -->
+<div id="data">
+    <h1>Hey! Let's Do Some Work</h1>
+    <ul>
+        <%
+
+        var monthName = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        var dayName = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+        
+        for(let i of task_list){ %>
+            <li class="task">
+                <div id="details">
+                    <!-- <input type="checkbox" class="fields" form="task" name="delete_ids" value="<%= i._id %>"> -->
+                    
+                        <div class="description">
+                            <%= i.description %>
+                        </div>
+                        <div class="date">
+                            <i class="far fa-calendar"></i>
+                            <%= dayName[i.day]%>, <%= i.date %> <%= monthName[i.month] %>, <%= i.year %>
+                       
+                    </div>
+                    <div class="priority"><%= i.priority %></div>
+                    <div class="category category_style"><%= i.category %></div>
+                    <div class="delete-button">
+                            <a href="/delete-task/?id=<%= i.id %>">
+                                <i class="fas fa-window-close"></i>
+                            </a>
+                    </div>
+                    
+                </div> 
+            </li>
+
+
+           
+        <% } %>
+    </ul>
+</div>
+
+
+<div class="priority_data">
+    <h1>Here's Your Important Tasks!!</h1>
+
+</div>
+
+
+<script type="text/javascript" src="js/home.js"></script>     
+</body>
+</html>

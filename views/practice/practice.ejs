@@ -1,0 +1,105 @@
+<!-- <div id="page-heading">
+      <h1>TODO APP</h1>  
+    </div>
+    <div id="description">
+        <form action="/create-task" method="POST">
+            <input type="text" name="description" placeholder="What do you need to do?" required>
+        </form>   
+    </div>
+    <div>
+        <div id="category">
+            <form action="/create-task" method="POST">
+                <p>CATEGORY</p>
+                <select name="Choose a category" >
+                    <option>
+                        Personal
+                    </option>
+                    <option>
+                        Work
+                    </option>
+                    <option>
+                        Schooling
+                    </option>
+                    <option>
+                        Cleaning
+                    </option>
+                    <option>
+                        Other
+                    </option>
+                </select>
+            </form>
+        </div>
+        <div id="date">
+                <form action="/create-task" method="POST">
+                    <p>DUE DATE</p>
+                    <input type="date" name="date">
+                </form>
+        </div>
+    </div>
+    <div>
+        <div id="add_task">
+            <i class="fas fa-plus"></i>
+            <button>ADD TASK</button>
+        </div>
+        <div id="delete_task">
+            <i class="fas fa-trash"></i>
+            <button>DELETE TASK</button>
+        </div>
+    </div>
+<div>
+    <ul>
+        <% for(let i of task_list){ %>
+            <li class="task">
+                <div class="details">
+                    <p id="para1"><%= i.description %> </p>
+                    <p id="para2"><%= i.due_date %></p>
+                    <p id="para2"><%= i.category %></p>
+                </div>
+            </li>
+        <% } %>
+    </ul>
+</div> -->
+
+
+    <!-- <h1 id="page-heading">
+        <i class="fas fa-address-book "></i>
+        My contacts list</h1>
+    <div>
+        <ul>
+            <% for(let i of contact_list){ %>
+                    <li class="contact">
+                    <div class="details">
+                        <p id="para1"><%= i.name %> </p>
+                       
+                        <p id="para2"><%= i.phone %></p>
+                    </div>
+                    <div class="delete-button">
+                        <a href="/delete-contact/?phone=<%= i.pnone %>">
+                            <i class="fas fa-window-close"></i>
+                        </a>
+                    </div>
+                
+                </li>
+
+            <% } %>
+        </ul>
+    </div>
+    
+    <form action="/create-contact" method="POST">
+        <input type="text" name="name" placeholder="enter name" required>
+        <input type="number" name="phone" placeholder="enter phone number" required>
+        <button type="submit">Add contact</button>
+
+    </form> -->
+    <!-- <script type="text/javascript" src="/js/home.js"></script> -->
+
+
+
+
+    <form action="/create-form" id="task">
+        <input type="text" name="name">
+    </form>
+
+    <select name="select-item" id="" form="task">
+        <option value="">one</option>
+    </select>
